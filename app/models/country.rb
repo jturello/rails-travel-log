@@ -4,5 +4,4 @@ class Country < ActiveRecord::Base
 
   validates :name, :blurb, :description, :presence => true
   validates :region_id, :uniqueness => true
-
 end
