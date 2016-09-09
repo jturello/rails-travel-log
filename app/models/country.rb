@@ -3,5 +3,5 @@ class Country < ActiveRecord::Base
   validates_associated :destinations
 
   validates :name, :blurb, :description, :presence => true
-  validates :region_id, :uniqueness => true
+
 end
