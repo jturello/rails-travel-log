@@ -1,0 +1,15 @@
+<h1>Vacation Destinations</h1>
+
+<h3>Destinations:</h3>
+<% if @countries.any? %>
+<ul>
+  <% @countries.each do |country| %>
+  <li>
+    <p><%= country.name %> (<%= country.sub_region if country.sub_region.present? %>):
+    <%= country.blurb %></p>
+  </li>
+  <% end %>
+</ul>
+<% else %>
+  <p>No countries added yet!</p>
+<% end %>
