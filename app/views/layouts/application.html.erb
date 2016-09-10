@@ -19,19 +19,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Hacker News</a>
+        <a class="navbar-brand" href="#">Vacation Getaways</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
         <ul class="nav navbar-nav">
-          <li><%= link_to "TBD", TBD_path %></li>
-          <li><%= link_to "TBD", new_TBD_path %></li>
+          <li><%= link_to_unless_current "Home", countries_path %></li>
+          <li> link_to "TBD", new_TBD_path </li>
           <li><a href="#">HREF TBD</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
-  
+
   <div class="flash-alert">
     <%= flash[:alert] %>
   </div>
