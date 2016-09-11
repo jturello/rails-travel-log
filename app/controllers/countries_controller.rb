@@ -23,6 +23,21 @@ class CountriesController < ApplicationController
     end
   end
 
+  def edit
+    @country = Country.find(params[:id])
+  end
+
+  def update
+    @country = Country.find(params[:id])
+    if @country.update(country_params)
+      flash[:notice] = "Country updated successfully!"
+      redirect_to country_path(@country)
+    else
+      flash[:alert] = "Country not saved. Try again!"
+      render :edit
+    end
+  end
+
   private
   def country_params
     params.require(:country).permit(:name, :blurb, :description, :language, :image_url)
