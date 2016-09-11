@@ -22,4 +22,9 @@
   <%= @country.description %>
 </p>
 
-<%= link_to "Update Country", edit_country_path(@country) %>
+<p>
+  <%= link_to "Edit", edit_country_path(@country) %> |
+  <%= link_to "Delete", country_path(@country),
+                       :data => {:confirm => "Are you sure?",
+                                 :method => "delete"} %>
+</p>
