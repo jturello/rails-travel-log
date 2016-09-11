@@ -1,8 +1,8 @@
 <h1><%= @country.name %>'s Country Detail Page</h1>
 
-<% if @country.language.present? %>
+<% if @country.language %>
   <p>
-    <%= @country.language %>
+    <span class="inline-label blue">Language: </span><%= @country.language %>
   </p>
 <% end %>
 
