@@ -5,8 +5,11 @@
 <ul>
   <% @countries.each do |country| %>
   <li>
-    <p><%= link_to country.name, country_path(country) %> <%= "(" + country.sub_region + ")" if country.sub_region %>:
-    <%= country.blurb %></p>
+    <p>
+      <%= link_to country_path(country) do %>
+        <%= country.name %> <%= "(" + country.sub_region + ")" if country.sub_region %>: <%= country.blurb %>
+      <% end %>
+    </p>
   </li>
   <% end %>
 </ul>
