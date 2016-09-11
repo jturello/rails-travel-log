@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root :to => 'countries#index'
 
   resources :countries do
-    resources :destinations
+    resources :destinations, :except => [:index]
   end
 end
