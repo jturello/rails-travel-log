@@ -1,0 +1,23 @@
+<h1><%= @country.name %>'s Country Detail Page</h1>
+
+<% if @country.language.present? %>
+  <p>
+    <%= @country.language %>
+  </p>
+<% end %>
+
+<% if @country.image_url %>
+  <p>
+    <%= image_tag @country.image_url %>
+  </p>
+<% end %>
+
+<p>
+  <%= @country.blurb  %>
+</p>
+<br>
+<br>
+<h4>Description:</h4>
+<p>
+  <%= @country.description %>
+</p>
