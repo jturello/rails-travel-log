@@ -22,7 +22,27 @@
   <%= @country.description %>
 </p>
 
+<hr>
+
+<h3>Destinations:</h3>
+<% if @country.destinations.any? %>
+<ul>
+  <% @country.destinations.each do |destination| %>
+  <li>
+    <p>
+      <%= link_to country_destination_path(destination) do %>
+        <%= destination.name %>: <%= destination.blurb %>
+      <% end %>
+    </p>
+  </li>
+  <% end %>
+</ul>
+<% else %>
+  <p>No Destinations added yet!</p>
+<% end %>
+
 <p>
+  <%= link_to "Add Destination", new_country_destination_path(@country) %> |
   <%= link_to "Edit", edit_country_path(@country) %> |
   <%= link_to "Delete", country_path(@country),
                        :data => {:confirm => "Are you sure?",

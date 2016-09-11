@@ -1,0 +1,27 @@
+<h1><%= @destination.name %>'s Destination Detail Page</h1>
+
+
+
+<% if @destination.image_url %>
+  <p>
+    <%= image_tag @destination.image_url %>
+  </p>
+<% end %>
+
+<p>
+  <%= @destination.blurb  %>
+</p>
+<br>
+<br>
+<h4>Description:</h4>
+<p>
+  <%= @destination.description %>
+</p>
+
+<p>
+  <%= link_to @destination.country.name, country_path(@destination.country) %> |
+  <%= link_to "Edit", edit_country_destination_path(@destination) %> |
+  <%= link_to "Delete", country_path(@destination.country),
+                       :data => {:confirm => "Are you sure?",
+                                 :method => "delete"} %>
+</p>
