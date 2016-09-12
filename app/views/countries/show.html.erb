@@ -36,7 +36,7 @@
 
 <h3>Destinations:</h3>
   <% if @country.destinations.any? %>
-    <ul>
+    <ol>
       <% @country.destinations.order(:name => :ASC).each do |destination| %>
         <li>
           <%= link_to country_destination_path(destination.country, destination) do %>
@@ -44,7 +44,7 @@
           <% end %>
         </li>
       <% end %>
-    </ul>
+    </ol>
   <% else %>
     <p>No Destinations added yet!</p>
   <% end %>
