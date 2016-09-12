@@ -37,7 +37,7 @@
 <h3>Destinations:</h3>
   <% if @country.destinations.any? %>
     <ul>
-      <% @country.destinations.each do |destination| %>
+      <% @country.destinations.order(:name => :ASC).each do |destination| %>
         <li>
           <%= link_to country_destination_path(destination.country, destination) do %>
             <%= destination.name %> : <%= destination.blurb %>
