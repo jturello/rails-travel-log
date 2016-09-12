@@ -12,6 +12,7 @@ class DestinationsController < ApplicationController
   def create
     @country = Country.find(params[:country_id])
     @destination = @country.destinations.new(destination_params)
+
     if @destination.save
       flash[:notice] = "Destination successfully added!"
       redirect_to country_path(@destination.country)
@@ -27,9 +28,7 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    # @country = Country.find(params[:country_id])
     @destination = Destination.find(params[:id])
-    # @destination = Destinations.find(params[:id])
     if @destination.update(destination_params)
       flash[:notice] = "Destination updated successfully!"
       redirect_to country_path(@destination.country)

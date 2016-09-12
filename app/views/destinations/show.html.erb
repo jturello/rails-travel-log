@@ -11,8 +11,7 @@
 <p>
   <%= @destination.blurb  %>
 </p>
-<br>
-<br>
+
 <h4>Description:</h4>
 <p>
   <%= @destination.description %>
@@ -20,8 +19,8 @@
 
 <p>
   <%= link_to @destination.country.name, country_path(@destination.country) %> |
-  <%= link_to "Edit", edit_country_destination_path(@destination) %> |
-  <%= link_to "Delete", country_path(@destination.country),
+  <%= link_to "Edit", edit_country_destination_path(@destination.country, @destination) %> |
+  <%= link_to "Delete", country_destination_path(@destination.country, @destination),
                        :data => {:confirm => "Are you sure?",
                                  :method => "delete"} %>
 </p>
