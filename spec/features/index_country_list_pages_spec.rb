@@ -26,4 +26,12 @@ describe "Root path" do
     end
   end
 
+  context "navbar" do
+    it "displays new country page on clicking 'New Country' button" do
+      visit root_path
+      click_on 'New Country'
+      expect(page).to have_css("h1", :text => "New Country")
+    end
+  end
+
 end
