@@ -3,7 +3,7 @@
 <h3>Countries:</h3>
 <% if @countries.any? %>
 <ul>
-  <% @countries.each do |country| %>
+  <% @countries.order(:name => :ASC).each do |country| %>
   <li>
     <p>
       <%= link_to country_path(country) do %>
