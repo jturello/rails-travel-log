@@ -2,7 +2,7 @@
 
 <h3>Countries:</h3>
 <% if @countries.any? %>
-<ul>
+<ol>
   <% @countries.order(:name => :ASC).each do |country| %>
   <li>
     <p>
@@ -12,7 +12,7 @@
     </p>
   </li>
   <% end %>
-</ul>
+</ol>
 <% else %>
   <p>No countries added yet!</p>
 <% end %>
