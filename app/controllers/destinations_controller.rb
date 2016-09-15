@@ -15,7 +15,7 @@ class DestinationsController < ApplicationController
 
     if @destination.save
       flash[:notice] = "Destination successfully added!"
-      redirect_to country_path(@destination.country)
+      redirect_to country_path @destination.country
     else
       flash[:alert] = "Destination not added. Try again!"
       render :new
@@ -31,7 +31,7 @@ class DestinationsController < ApplicationController
     @destination = Destination.find(params[:id])
     if @destination.update(destination_params)
       flash[:notice] = "Destination updated successfully!"
-      redirect_to country_path(@destination.country)
+      redirect_to country_destination_path @destination.country, @destination
     else
       flash[:alert] = "Destination not saved. Try again!"
       render :edit
@@ -41,6 +41,7 @@ class DestinationsController < ApplicationController
   def destroy
     @destination = Destination.find(params[:id])
     @destination.destroy
+    flash[:notice] = "Destination deleted successfully!"
     redirect_to country_path(@destination.country)
   end
 
