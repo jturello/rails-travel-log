@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :country do
-    name 'Modor'
+    name 'Mordor'
     blurb 'Sights to see - the Eye of Sauron!'
     description 'Billowing clouds of choking soot!'
   end
