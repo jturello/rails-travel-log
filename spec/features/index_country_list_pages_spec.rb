@@ -2,10 +2,19 @@ require 'rails_helper'
 
 
 describe "Root path" do
-  context "with no countries added" do
+  context "with no countries" do
     it "displays text 'No countries added yet!'" do
       visit root_path
       expect(page).to have_content "No countries added yet!"
+    end
+
+    context "after last country is deleted" do
+      it "displays text 'No countries added yet'" do
+        @country = FactoryGirl.create(:country)
+        visit country_path @country
+        click_on 'Delete'
+        expect(page).to have_content "No countries added yet!"
+      end
     end
   end
 
