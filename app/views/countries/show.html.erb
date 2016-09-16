@@ -1,8 +1,14 @@
 <h1><%= @country.name %>'s Country Detail Page</h1>
 
+<% if @country.sub_region %>
+  <p>
+    <span class="green">Region: </span><%= @country.sub_region %>
+  </p>
+<% end %>
+
 <% if @country.language %>
   <p>
-    <span class="inline-label blue">Language: </span><%= @country.language %>
+    <span class="green">Language: </span><%= @country.language %>
   </p>
 <% end %>
 
