@@ -4,7 +4,7 @@ describe "new_country_path" do
   context "with all required input provided" do
     it "adds a new country" do
       visit root_path
-      click_on 'New Country'
+      click_on 'Add Country'
       fill_in 'Name', :with => 'Mordor'
       fill_in 'Blurb', :with => 'Sights to see - the Eye of Sauron'
       fill_in 'Description', :with => 'Billowing clouds of choking soot'
@@ -15,7 +15,7 @@ describe "new_country_path" do
   context "when all required input not provided" do
     it "displays a warning message when Name is blank" do
       visit root_path
-      click_on 'New Country'
+      click_on 'Add Country'
 
       fill_in 'Blurb', :with => 'Sights to see - the Eye of Sauron'
       fill_in 'Description', :with => 'Billowing clouds of choking soot'
@@ -25,7 +25,7 @@ describe "new_country_path" do
 
     it "displays a warning message when Blurb is blank" do
       visit root_path
-      click_on 'New Country'
+      click_on 'Add Country'
       fill_in 'Name', :with => 'Mordor'
 
       fill_in 'Description', :with => 'Billowing clouds of choking soot'
@@ -35,7 +35,7 @@ describe "new_country_path" do
 
     it "displays a warning message when Description is blank" do
       visit root_path
-      click_on 'New Country'
+      click_on 'Add Country'
       fill_in 'Name', :with => 'Mordor'
       fill_in 'Blurb', :with => 'Sights to see - the Eye of Sauron'
 
@@ -45,7 +45,7 @@ describe "new_country_path" do
 
     it "redisplays the New Country page" do
       visit root_path
-      click_on 'New Country'
+      click_on 'Add Country'
 
       fill_in 'Blurb', :with => 'Sights to see - the Eye of Sauron'
       fill_in 'Description', :with => 'Billowing clouds of choking soot'
