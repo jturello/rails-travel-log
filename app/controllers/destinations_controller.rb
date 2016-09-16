@@ -18,7 +18,7 @@ class DestinationsController < ApplicationController
       redirect_to country_path @destination.country
     else
       flash[:alert] = "Destination not added. Try again!"
-      render :new
+      redirect_to new_country_destination_path @destination.country, @destination
     end
   end
 
