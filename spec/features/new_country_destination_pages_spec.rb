@@ -53,7 +53,6 @@ describe 'new_country_destination_path' do
     it 're-displays New Destination Page' do
       @country = FactoryGirl.create :country
       visit new_country_destination_path @country
-      # click_on 'Add Destination'
       click_on 'Create Destination'
       expect(page).to have_content 'New Destination'
     end

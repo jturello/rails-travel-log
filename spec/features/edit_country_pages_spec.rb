@@ -24,7 +24,7 @@ describe "edit_country_path" do
     expect(page).to have_content('Sights to see - the Eye of Sauron!')
   end
 
-  it "does not change Name when Cancel Update is clicked" do
+  it "does not update country when Cancel Update is clicked" do
     @country = FactoryGirl.create(:country)
     visit root_path
     click_on 'Mordor : Sights to see - the Eye of Sauron!'
