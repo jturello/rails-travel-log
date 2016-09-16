@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    
+
   end
   factory :country do
     name 'Mordor'
@@ -11,7 +11,7 @@ FactoryGirl.define do
   factory :destination do
     name 'Barad Dur'
     blurb 'Beautiful city of Sauron with postcard perfect views of Mount Doom'
-    description "At the foothills of Ered Lithiu and just a 2 day's march to Mount Doom!"
+    description "At the foothills of Ered Lithiu. Take a day trip to Mount Doom!"
     country
   end
 end
