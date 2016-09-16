@@ -24,7 +24,7 @@ class DestinationsController < ApplicationController
 
   def edit
     @destination = Destination.find(params[:id])
-    @country = Country.find(@destination.country)
+    @country = Country.find(@destination.country.id)
   end
 
   def update

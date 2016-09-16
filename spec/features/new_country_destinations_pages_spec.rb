@@ -37,7 +37,7 @@ describe 'new_country_destination_path' do
     it "Update Destionation page displays" do
       @destination = FactoryGirl.create :destination
 
-      visit country_destination_path @destination.country, @destination
+      visit country_destination_path @destination.country.id, @destination.id
       click_on 'Edit'
       expect(page).to have_content "Update Destination"
     end
