@@ -18,9 +18,11 @@
 </p>
 
 <p>
-  <%= link_to @destination.country.name + " Page", country_path(@destination.country) %> |
-  <%= link_to "Edit", edit_country_destination_path(@destination.country, @destination) %> |
-  <%= link_to "Delete", country_destination_path(@destination.country, @destination),
-                       :data => {:confirm => "Are you sure?",
-                                 :method => "delete"} %>
+  <%= link_to @destination.country.name + " Page", country_path(@destination.country) %>
+    <% if user_signed_in? %>
+    | <%= link_to "Edit", edit_country_destination_path(@destination.country, @destination) %> |
+      <%= link_to "Delete", country_destination_path(@destination.country, @destination),
+      :data => {:confirm => "Are you sure?",
+        :method => "delete"} %>
+    <% end %>
 </p>

@@ -26,19 +26,21 @@
 <p>
   <%= @country.description %>
 </p>
-
-<p>
-<%= link_to "Edit", edit_country_path(@country) %> |
-<%= link_to "Delete", country_path(@country),
-                     :data => {:confirm => "Are you sure?",
-                               :method => "delete"} %>
-</p>
+<% if user_signed_in? %>
+  <p>
+    <%= link_to "Edit", edit_country_path(@country) %> |
+    <%= link_to "Delete", country_path(@country),
+    :data => {:confirm => "Are you sure?",
+      :method => "delete"} %>
+  </p>
+<% end %>
 
 <hr>
 
-<p>
-  <%= link_to "Add Destination", new_country_destination_path(@country) %>
-</p>
+<% if user_signed_in? %>
+  <p><%= link_to "Add Destination", new_country_destination_path(@country) %></p>
+<% end %>
+
 
 <h3>Destinations:</h3>
   <% if @country.destinations.any? %>
