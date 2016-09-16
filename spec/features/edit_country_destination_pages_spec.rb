@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'edit_country_destinations_path' do
+describe 'edit_country_destination_path' do
 
   context 'when country link is clicked' do
     it 'displays the country detail page' do
