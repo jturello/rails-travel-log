@@ -44,6 +44,7 @@ class CountriesController < ApplicationController
       destination.destroy
     end
     @country.destroy
+    flash[:notice] = 'Country successfully deleted!'
     redirect_to countries_path
   end
 
