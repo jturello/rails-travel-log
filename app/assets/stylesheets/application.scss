@@ -32,4 +32,40 @@ input  {
 
 .green {
   color: #0C8641;
+  }
+
+#error_explanation {
+  background-color: #E73232; //#F24936;
+  color: #FCE789;
+  ul {
+    background-color: #FCE789;
+    color: #E73232;
+  }
 }
+
+.flash-alert {
+  background-color: #F24936;
+  color: #2955D7;
+}
+
+.flash-notice {
+  background-color: LightGreen;
+  color: #2955D7;
+}
+
+
+
+
+
+/*******  DEBUG STYLES  ********
+
+* { outline: 2px dotted red }
+* * { outline: 2px dotted green }
+* * * { outline: 2px dotted orange }
+* * * * { outline: 2px dotted blue }
+* * * * * { outline: 1px solid red }
+* * * * * * { outline: 1px solid green }
+* * * * * * * { outline: 1px solid orange }
+* * * * * * * * { outline: 1px solid blue }
+
+********************************/
