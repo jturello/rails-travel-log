@@ -35,7 +35,7 @@ input  {
   }
 
 #error_explanation {
-  background-color: #E73232; //#F24936;
+  background-color: #E73232;
   color: #FCE789;
   ul {
     background-color: #FCE789;
@@ -45,12 +45,14 @@ input  {
 
 .flash-alert {
   background-color: #F24936;
-  color: #2955D7;
+  color: Yellow;  
+  padding-left: 5px;
 }
 
 .flash-notice {
   background-color: LightGreen;
   color: #2955D7;
+  padding-left: 5px;
 }
 
 
