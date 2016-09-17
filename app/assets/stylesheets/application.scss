@@ -37,15 +37,21 @@ input  {
 #error_explanation {
   background-color: #E73232;
   color: #FCE789;
+  text-align: center;
+  h2 {
+    margin-top: 10px;
+    padding-top: 8px
+  }
   ul {
     background-color: #FCE789;
     color: #E73232;
+    text-align: left;
   }
 }
 
 .flash-alert {
   background-color: #F24936;
-  color: Yellow;  
+  color: Yellow;
   padding-left: 5px;
 }
 
