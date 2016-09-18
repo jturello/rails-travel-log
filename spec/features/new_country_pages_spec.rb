@@ -1,8 +1,15 @@
 require('rails_helper')
 
 describe "new_country_path" do
+  before :each do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+  end
+
+
   context "with all required input provided" do
     it "adds a new country" do
+
       visit root_path
       click_on 'Add Country'
       fill_in 'Name', :with => 'Mordor'
@@ -12,6 +19,7 @@ describe "new_country_path" do
       expect(page).to have_content('Mordor')
     end
   end
+
   context "when all required input not provided" do
     it "displays a warning message when Name is blank" do
       visit root_path

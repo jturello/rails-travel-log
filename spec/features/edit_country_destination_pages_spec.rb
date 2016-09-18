@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe 'edit_country_destination_path' do
 
+  before :each do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+  end
+
   context 'when Update is clicked' do
     it "updates destination" do
       @destination = FactoryGirl.create :destination

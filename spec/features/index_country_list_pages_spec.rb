@@ -2,6 +2,12 @@ require 'rails_helper'
 
 
 describe "Root path" do
+
+  before :each do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+  end
+
   context "with no countries" do
     it "displays text 'No countries added yet!'" do
       visit root_path

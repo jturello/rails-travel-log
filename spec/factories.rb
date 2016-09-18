@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :user do
+  # factory :user do
 
-  end
   factory :country do
     name 'Mordor'
     blurb 'Sights to see - the Eye of Sauron!'
@@ -13,5 +12,12 @@ FactoryGirl.define do
     blurb 'Beautiful city of Sauron with postcard perfect views of Mount Doom'
     description "At the foothills of Ered Lithiu. Take a day trip to Mount Doom!"
     country
+  end
+
+  factory :user do
+    username 'John Doe'
+    email 'johndoe@bananas.com'
+    password 'password'
+    password_confirmation 'password'
   end
 end

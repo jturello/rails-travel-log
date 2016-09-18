@@ -2,6 +2,11 @@ require('rails_helper')
 
 describe "edit_country_path" do
 
+  before :each do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+  end
+
   it "changes Name when Name is updated" do
     @country = FactoryGirl.create(:country)
     visit root_path

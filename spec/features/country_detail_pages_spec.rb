@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe 'country_path' do
+
+  before :each do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+  end
+  
   context 'when Add Destination link is clicked' do
     it "displays Add Destination page" do
       @country = FactoryGirl.create(:country)

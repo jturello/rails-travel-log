@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe 'new_country_destination_path' do
 
+  before :each do
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+  end
+
   context 'when add succeeds' do
     it 'creates a new destination' do
       @country = FactoryGirl.create :country
