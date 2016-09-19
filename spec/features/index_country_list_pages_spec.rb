@@ -47,6 +47,13 @@ describe "Root path" do
       click_on 'Add Country'
       expect(page).to have_css("h1", :text => "New Country")
     end
-  end
 
+    context 'when user is not logged in' do
+      it "does not display the 'Add Country' button" do
+        logout :user
+        visit root_path
+        expect(page).to_not have_link('Add Country', :href=>new_country_path)
+      end
+    end
+  end
 end

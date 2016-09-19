@@ -6,7 +6,7 @@ describe 'country_path' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
   end
-  
+
   context 'when Add Destination link is clicked' do
     it "displays Add Destination page" do
       @country = FactoryGirl.create(:country)
@@ -42,6 +42,29 @@ describe 'country_path' do
     end
   end
 
+  context 'when user is not logged in' do
+    it "does not display the 'Edit' link" do
+      logout :user
+      @country = FactoryGirl.create :country
+      visit edit_country_path(@country)
+      expect(page).to_not have_link('Edit', :href=>edit_country_path(@country))
+    end
+
+    it "does not display the 'Delete' link" do
+      logout :user
+      @country = FactoryGirl.create :country
+      visit edit_country_path(@country)
+      expect(page).to_not have_link('Delete', :href=>country_path(@country))
+    end
+
+    it "does not display the 'Add Destination' link" do
+      logout :user
+      @country = FactoryGirl.create :country
+      visit edit_country_path(@country)
+      expect(page).to_not have_link('Add Destination', :href=>country_path(@country))
+    end
+  end
+
   context 'Navbar' do
      context 'when Travel Log logo is clicked' do
        it 'displays the index page (root_path)' do
@@ -52,5 +75,4 @@ describe 'country_path' do
        end
      end
   end
-
 end

@@ -41,4 +41,20 @@ describe 'country_destination_path' do
     end
   end
 
+  context 'when user is not logged in' do
+
+    it "does not display the 'Edit' link" do
+      logout :user
+      @destination = FactoryGirl.create :destination
+      visit country_destination_path @destination.country.id, @destination.id
+      expect(page).to_not have_link('Edit', :href=>edit_country_destination_path(@destination.country, @destination))
+    end
+
+    it "does not display the 'Delete' link" do
+      logout :user
+      @destination = FactoryGirl.create :destination
+      visit country_destination_path @destination.country.id, @destination.id
+      expect(page).to_not have_link('Edit', :href=>country_destination_path(@destination.country, @destination))
+    end
+  end
 end
