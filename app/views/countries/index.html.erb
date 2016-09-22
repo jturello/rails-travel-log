@@ -1,6 +1,8 @@
 <h1>Vacation Country Destinations</h1>
 
 <h3>Countries:</h3>
+<div class="form_anchor"></div>
+
 <% if @countries.any? %>
 <ol>
   <% @countries.order(:name => :ASC).each do |country| %>
