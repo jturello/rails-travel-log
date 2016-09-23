@@ -4,4 +4,5 @@ class Destination < ActiveRecord::Base
 
   validates :name, :blurb, :description, :presence => true
   validates :country_id, :presence => true
+  validates_associated :posts
 end
