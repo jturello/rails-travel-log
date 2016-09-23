@@ -20,4 +20,10 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  factory :post do
+    content 'This is a post!'
+    commentable
+    user
+  end
 end
