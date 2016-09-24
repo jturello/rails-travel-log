@@ -24,3 +24,24 @@
         :method => "delete"} %>
     <% end %>
 </p>
+
+<hr>
+
+<% if user_signed_in? %>
+  <%= link_to 'Add Post', new_country_destination_post_path(@destination.country, @destination) %>
+<% end %>
+
+<h3>Posts:</h3>
+  <% if @destination.posts.any? %>
+    <ol>
+      <% @destination.posts.order(:content => :ASC).each do |post| %>
+        <li>
+          <%= link_to country_destination_post_path(@destination.country, @destination, post) do %>
+            <%= User.find(post.user_id).username %> : <%= post.content %>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <p>No Posts added yet!</p>
+  <% end %>

@@ -12,7 +12,7 @@ describe 'country_path' do
       @country = FactoryGirl.create(:country)
       visit country_path @country
       click_on 'Add Destination'
-      expect(page).to have_content('New Destination')
+      expect(page).to have_css('h2', :text => 'New Destination')
     end
   end
 

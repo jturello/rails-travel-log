@@ -21,9 +21,20 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
-  factory :post do
-    content 'This is a post!'
-    commentable
+  factory :destination_post, class: :post do |post|
+    post.content 'This is a destination post!'
     user
+    commentable do |p|
+      p.association(:destination)
+    end
   end
+
+  factory :country_post, class: :post do |post|
+    post.content 'This is a country post!'
+    user
+    commentable do |p|
+      p.association(:country)
+    end
+  end
+
 end
