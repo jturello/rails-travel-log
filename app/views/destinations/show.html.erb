@@ -33,15 +33,14 @@
 
 <h3>Posts:</h3>
   <% if @destination.posts.any? %>
-    <ol>
-      <% @destination.posts.order(:content => :ASC).each do |post| %>
-        <li>
-          <%= link_to country_destination_post_path(@destination.country, @destination, post) do %>
-            <%= User.find(post.user_id).username %> : <%= post.content %>
-          <% end %>
-        </li>
+
+      <% @destination.posts.order(:updated_at => :DESC).each do |post| %>
+        <p>
+            <%= User.find(post.user_id).username %> |
+            <%= post.updated_at.strftime("%F") %> |
+            <%= post.content %>
+        </p>
       <% end %>
-    </ol>
   <% else %>
     <p>No Posts added yet!</p>
   <% end %>
