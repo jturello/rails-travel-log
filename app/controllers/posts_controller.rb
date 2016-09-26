@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def create
     @destination = Destination.find(params[:destination_id])
     @post = @destination.posts.new(post_params)
+    @post.user_id = current_user.id
 
     if @post.save
       flash[:notice] = "Post successfully added!"
