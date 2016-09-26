@@ -28,7 +28,7 @@
 <hr>
 
 <% if user_signed_in? %>
-  <%= link_to 'Add Post', new_country_destination_post_path(@destination.country, @destination) %>
+  <%= link_to 'Add Post', new_country_destination_post_path(@destination.country, @destination), remote: true, id: "d_add_post_link" %>
 <% end %>
 
 <h3>Posts:</h3>
