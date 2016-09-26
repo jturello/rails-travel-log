@@ -1,0 +1,5 @@
+$('#new_post').remove();
+$('#d_add_post_link').show();
+<% if !@post.id.nil? %>
+    $('#destination_post_list').prepend('<p><%= User.find(@post.user_id).username %> | <%= @post.updated_at.strftime("%F") %> |  <%= @post.content %></p>');
+<% end %>

@@ -34,6 +34,8 @@
 <h3>Posts:</h3>
   <% if @destination.posts.any? %>
 
+<div id="destination_post_list">
+
       <% @destination.posts.order(:updated_at => :DESC).each do |post| %>
         <p>
             <%= User.find(post.user_id).username %> |
@@ -44,3 +46,4 @@
   <% else %>
     <p>No Posts added yet!</p>
   <% end %>
+</div>
