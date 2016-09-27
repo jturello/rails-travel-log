@@ -37,13 +37,13 @@
       <table id="destination_post_table" class="table table-bordered">
         <thead class="thead-inverse">
           <tr>
-            <th>User</th>
-            <th>Last Updated</th>
-            <th>Post</th>
+            <th><%= sortable "username" %></th>
+            <th><%= sortable "updated_at", "Last Updated" %></th>
+            <th><%= sortable "content" %></th>
           </tr>
         </thead>
 
-        <% @destination.posts.order(:updated_at => :DESC).each do |post| %>
+        <% @destination.posts.joins(:user).order(params[:sort] + " " + params[:direction]).each do |post| %>
           <tr>
             <td> <%= User.find(post.user_id).username %> </td>
             <td> <%= post.updated_at.strftime("%F") %>   </td>

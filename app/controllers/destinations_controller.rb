@@ -3,6 +3,7 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Destination.find(params[:id])
+    # @ordered_posts = @destination.posts.order(params[:sort])
   end
 
   def new
