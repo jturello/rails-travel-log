@@ -32,18 +32,25 @@
 <% end %>
 
 <h3>Posts:</h3>
-  <% if @destination.posts.any? %>
+  <div class="destination_post_list">
+    <% if @destination.posts.any? %>
+      <table id="destination_post_table" class="table table-bordered">
+        <thead class="thead-inverse">
+          <tr>
+            <th>User</th>
+            <th>Last Updated</th>
+            <th>Post</th>
+          </tr>
+        </thead>
 
-<div id="destination_post_list">
-
-      <% @destination.posts.order(:updated_at => :DESC).each do |post| %>
-        <p>
-            <%= User.find(post.user_id).username %> |
-            <%= post.updated_at.strftime("%F") %> |
-            <%= post.content %>
-        </p>
+        <% @destination.posts.order(:updated_at => :DESC).each do |post| %>
+          <tr>
+            <td> <%= User.find(post.user_id).username %> </td>
+            <td> <%= post.updated_at.strftime("%F") %>   </td>
+            <td> <%= post.content %> </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <p class="no_posts_msg">No Posts added yet!</p>
       <% end %>
-  <% else %>
-    <p>No Posts added yet!</p>
-  <% end %>
-</div>
+    </div>

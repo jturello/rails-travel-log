@@ -1,5 +1,21 @@
 $('#new_post').remove();
 $('#d_add_post_link').show();
 <% if !@post.id.nil? %>
-    $('#destination_post_list').prepend('<p><%= User.find(@post.user_id).username %> | <%= @post.updated_at.strftime("%F") %> |  <%= @post.content %></p>');
+  <% if @destination.posts.count < 2 %>
+    $('p.no_posts_msg').remove();
+    $('div.destination_post_list').prepend(
+        "<table id='destination_post_table' class='table table-bordered'>" +
+          "<thead class='thead-inverse'>" +
+            "<tr>" +
+              "<th>User</th>" +
+              "<th>Last Updated</th>" +
+              "<th>Post</th>" +
+            "</tr>" +
+          "</thead>")
+  <% end %>
+  $('#destination_post_table').prepend('<tr> ' +
+                                          '<td> <%= User.find(@post.user_id).username %> </td>' +
+                                          '<td> <%= @post.updated_at.strftime("%F") %> </td>' +
+                                          '<td> <%= @post.content %> </td>' +
+                                        '</tr>');
 <% end %>

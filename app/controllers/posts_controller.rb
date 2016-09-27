@@ -22,8 +22,6 @@ class PostsController < ApplicationController
       end
       format.js do
         @post.save()
-        binding.pry
-
       end
     end
 
