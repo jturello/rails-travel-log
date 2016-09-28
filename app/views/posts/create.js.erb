@@ -7,9 +7,9 @@ $('#d_add_post_link').show();
         "<table id='destination_post_table' class='table table-bordered'>" +
           "<thead class='thead-inverse'>" +
             "<tr>" +
-              "<th>User</th>" +
-              "<th>Last Updated</th>" +
-              "<th>Post</th>" +
+            '<th><%= link_to "Username", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :sort => "username" %></th>' +
+            '<th><%= link_to "Last Update", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :sort => "updated_at"  %></th>' +
+            '<th><%= link_to "Content", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :sort => "content"  %></th>' +
             "</tr>" +
           "</thead>")
   <% end %>

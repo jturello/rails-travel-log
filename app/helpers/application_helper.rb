@@ -2,9 +2,8 @@ module ApplicationHelper
 
   def sortable(column, title = nil)
     title ||= column.titleize
-    binding.pry
-    direction = column == params[:sort] && params[:direction] == "asc" ? "desc" : "asc"
-    binding.pry
-    link_to title, sort: column, direction: direction
+    # binding.pry
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, :sort => column, :direction => direction
   end
 end
