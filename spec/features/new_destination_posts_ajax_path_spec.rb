@@ -24,7 +24,7 @@ describe "adding a new destination post with ajax" do
       expect(page).to have_link("Add Post", href: new_country_destination_post_path(@destination.country, @destination))
     end
 
-    it "adds a new post" do
+    it "adds a new post with server request / full page load" do
       visit country_destination_path(@destination.country.id, @destination.id)
       click_on 'Add Post'
       fill_in "Content", :with => 'Here is a new post!'
@@ -39,5 +39,4 @@ describe "adding a new destination post with ajax" do
       expect(page).to have_content "Content"
     end
   end
-
 end
