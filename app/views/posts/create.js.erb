@@ -8,7 +8,7 @@ $('#d_add_post_link').show();
           "<thead class='thead-inverse'>" +
             "<tr>" +
             '<th><%= link_to "Username", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :sort => "username" %></th>' +
-            '<th><%= link_to "Last Update", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :sort => "updated_at"  %></th>' +
+            '<th><%= link_to "Last Updated", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :direction => "desc", :sort => "updated_at"  %></th>' +
             '<th><%= link_to "Content", :controller => "destinations", :action => "show", :country_id => @destination.country.id, :id => @destination.id, :sort => "content"  %></th>' +
             "</tr>" +
           "</thead>")
