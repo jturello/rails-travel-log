@@ -1,5 +1,4 @@
 FactoryGirl.define do
-  # factory :user do
 
   factory :country do
     name 'Mordor'

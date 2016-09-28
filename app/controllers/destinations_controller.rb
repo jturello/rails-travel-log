@@ -5,7 +5,6 @@ class DestinationsController < ApplicationController
   def show
     @destination = Destination.find(params[:id])
     @posts = @destination.posts.joins(:user).order(sort_column + " " + sort_direction)
-    # binding.pry
   end
 
   def new
@@ -59,7 +58,6 @@ class DestinationsController < ApplicationController
   end
 
   def sort_direction
-    # params[:direction] ||= 'asc'
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 
