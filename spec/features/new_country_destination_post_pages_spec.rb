@@ -15,7 +15,7 @@ describe 'new_country_destination_post_path' do
       it "displays text 'No posts added yet!'" do
         @destination = FactoryGirl.create(:destination)
         visit country_destination_path @destination.country.id, @destination.id
-        expect(page).to have_content('No Posts added yet!')
+        expect(page).to have_content('No posts added yet!')
       end
     end
 

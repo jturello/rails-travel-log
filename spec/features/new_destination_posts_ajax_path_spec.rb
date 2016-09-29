@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "adding a new destination post with ajax" do
+describe "adding a new destination post" do
   before :each do
     @destination = FactoryGirl.create :destination
   end
@@ -32,11 +32,49 @@ describe "adding a new destination post with ajax" do
       expect(page).to have_link('Last Updated')
     end
 
-    it "adds a new post with ajax", js: true do
-      visit country_destination_path(@destination.country.id, @destination.id)
-      click_on 'Add Post'
-      expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country))
-      expect(page).to have_content "Content"
+    describe "when requests are sent via Ajax", js: true do
+      before :each do
+        @destination = FactoryGirl.create :destination
+        user = FactoryGirl.create(:user, :email => 'some@otheremail.com')
+        login_as(user, :scope => :user)
+      end
+
+      context "when Add Post link is clicked" do
+
+        it "displays Add Post form inline on destination detail page" do
+          visit country_destination_path(@destination.country.id, @destination.id)
+          click_on 'Add Post'
+          expect(page).to have_content('Content')
+          expect(page).to have_css('h1', :text => @destination.name + "'s Destination Detail Page")
+        end
+
+        it "adds a new post" do
+          visit country_destination_path(@destination.country.id, @destination.id)
+          click_on 'Add Post'
+          expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country))
+          expect(page).to have_content "Content"
+        end
+
+        context "when Create Post is clicked" do
+
+          it "removes text 'No posts added yet!' from page" do
+            visit country_destination_path(@destination.country.id, @destination.id)
+            click_on 'Add Post'
+            fill_in "Content", :with => "This is a new post!"
+            click_on 'Create Post'
+            expect(page).not_to have_content('No posts added yet!')
+          end
+
+          it "removes New Post form from page" do
+            visit country_destination_path(@destination.country.id, @destination.id)
+            click_on 'Add Post'
+            fill_in "Content", :with => "This is a new post!"
+            click_on 'Create Post'
+            expect(page).not_to have_button('Create Post')
+          end
+        end
+      end # END CONTEXT add post link clicked
     end
-  end
+  end # END CONTEXT user logged in
+
 end

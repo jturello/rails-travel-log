@@ -53,27 +53,7 @@ describe "destination post list sorting with ajax" do
         within(:xpath, "//tbody/tr[1]") do
           expect(page).to have_content "Third post!"
         end
-        # within(:xpath, "//table/tr[2]") do
-        #   expect(page).to have_content("second post")
-        # end
       end
-
-    end
-
-
-    it "adds a new post" do
-      # visit country_destination_path(@destination.country.id, @destination.id)
-      # click_on 'Add Post'
-      # fill_in "Content", :with => 'Here is a new post!'
-      # click_on 'Create Post'
-      # expect(page).to have_link('Last Updated')
-    end
-
-    it "adds a new post with ajax", js: true do
-      # visit country_destination_path(@destination.country.id, @destination.id)
-      # click_on 'Add Post'
-      # expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country))
-      # expect(page).to have_content "Content"
     end
   end
 
