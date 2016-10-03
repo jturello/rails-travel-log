@@ -1,24 +1,29 @@
-# README
+Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, APIs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### This app is a travel log where users can come to see general information about travel destinations other registered users have added. Non-registered users can sign up to be able to add/edit/delete entries of their own. Logged in users can add/edit/delete items they have created.
 
-Things you may want to cover:
+#### By James Turello
 
-* Ruby version
+### Software required to run this app
+ * Rails 5.0.0.1
+ * Postgres 9.5.0
 
-* System dependencies
+## Setup/Installation Instructions/Requirements
+ * Clone the git repository
+ * cd into the project directory in a terminal window
+ * Run the `bundle` command
+ * Enter `localhost:3000` to run the app
 
-* Configuration
+## Known Bugs/Issues
 
-* Database creation
+No known issues.
 
-* Database initialization
+## Technologies Used
 
-* How to run the test suite
+Rails 5.0.0.1, Postgres 9.5.0, tested on Chrome 52.0.2743.116 (64-bit)(Mac)
 
-* Services (job queues, cache servers, search engines, etc.)
+### License
 
-* Deployment instructions
+This software is available for use under the MIT license.
 
-* ...
+Copyright (c) 2016 - James Turello
