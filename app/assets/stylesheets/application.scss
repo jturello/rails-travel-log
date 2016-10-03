@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 input  {
      width: 100%;
      margin-top: 1px;
@@ -66,6 +67,16 @@ input  {
   height: 100px;
 }
 
+.image_cell {
+  max-width: 550px;
+}
+
+ .map_container { height: 250px; }
+
+ #map {
+   height: 100%;
+   max-width: 600px;
+ }
 
 
 /*******  DEBUG STYLES  ********
