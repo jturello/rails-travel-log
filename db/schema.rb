@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923202823) do
+ActiveRecord::Schema.define(version: 20161004213800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,24 @@ ActiveRecord::Schema.define(version: 20160923202823) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["country_id"], name: "index_destinations_on_country_id", using: :btree
+  end
+
+  create_table "forecasts", force: :cascade do |t|
+    t.integer  "api_timestamp"
+    t.string   "timezone"
+    t.string   "date"
+    t.text     "summary"
+    t.string   "icon"
+    t.decimal  "temp"
+    t.decimal  "humidity"
+    t.decimal  "windspeed"
+    t.decimal  "precip_probability"
+    t.text     "summary_for_week"
+    t.integer  "destination_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["api_timestamp"], name: "index_forecasts_on_api_timestamp", using: :btree
+    t.index ["destination_id"], name: "index_forecasts_on_destination_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -68,5 +86,6 @@ ActiveRecord::Schema.define(version: 20160923202823) do
   end
 
   add_foreign_key "destinations", "countries"
+  add_foreign_key "forecasts", "destinations"
   add_foreign_key "posts", "users"
 end
