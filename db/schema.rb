@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006235404) do
+ActiveRecord::Schema.define(version: 20161007085651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20161006235404) do
   end
 
   create_table "forecasts", force: :cascade do |t|
-    t.integer  "api_timestamp"
+    t.integer  "api_timestamp",                               null: false
     t.string   "timezone"
     t.string   "date"
     t.text     "summary"
