@@ -34,9 +34,44 @@
 
 <hr>
 
+<%= link_to 'Check Weather', new_country_destination_forecast_path(@destination.country, @destination),  id: "check_weather_link" %>
+
+<h3>Latest Forecast:</h3>
+  <div class="forecast_div">
+    <% if @destination.forecasts.any? %>
+      <table id="forecast_table" class="table table-bordered">
+        <thead class="thead-inverse">
+          <tr>
+            <th><%= "Date" %></th>
+            <th><%= "Time Zone" %></th>
+            <th><%= "Temperature" %></th>
+            <th><%= "Humidity" %></th>
+            <th><%= "Chance of Rain" %></th>
+            <th><%= "7 Day Forecast" %></th>
+          </tr>
+        </thead>
+
+        <% @forecast_d = @destination.forecasts.order(:api_timestamp => :DESC).first  %>
+          <tr>
+            <td> <%= @forecast_d.date %> </td>
+            <td> <%= @forecast_d.timezone %> </td>
+            <td> <%= @forecast_d.temp %> </td>
+            <td> <%= @forecast_d.humidity %> </td>
+            <td> <%= @forecast_d.precip_probability %> </td>
+            <td> <%= @forecast_d.summary_for_week %> </td>
+          </tr>
+      </table>
+    <% else %>
+      <p class="no_forecasts_msg">No forecasts added yet!</p>
+    <% end %>
+  </div>
+
+<hr>
+
 <% if user_signed_in? %>
   <%= link_to 'Add Post', new_country_destination_post_path(@destination.country, @destination), remote: true, id: "d_add_post_link" %>
 <% end %>
+
 
 <h3>Posts:</h3>
   <div class="destination_post_list">
@@ -53,10 +88,11 @@
         <% @posts.each do |post| %>
           <tr>
             <td> <%= User.find(post.user_id).username %> </td>
-            <td> <%= post.updated_at.strftime("%F %H:%M:%S") %>   </td>
+            <td> <%= post.updated_at.strftime("%F %H:%M:%S") %> </td>
             <td> <%= post.content %> </td>
           </tr>
         <% end %>
+      </table>
       <% else %>
         <p class="no_posts_msg">No posts added yet!</p>
       <% end %>

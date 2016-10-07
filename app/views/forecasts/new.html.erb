@@ -1,0 +1,20 @@
+<h1>New forecast</h1>
+
+<% if @forecast.errors.any? %>
+  <p>
+    Something went wrong:
+  </p>
+    <ul>
+      <% @forecast.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+<%= form_for [@country, @destination, @forecast] do |f| %>
+  <%= f.label :latitude %>
+  <%= f.text_field :latitude, :required => true %>
+  <%= f.label :longitude %>
+  <%= f.text_field :longitude, :required => true %>
+  <%= f.submit %>
+<% end %>

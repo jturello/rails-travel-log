@@ -43,6 +43,9 @@ class DestinationsController < ApplicationController
 
   def destroy
     @destination = Destination.find(params[:id])
+    @destination.forecasts.each do |forecast|
+      forecast.destroy
+    end
     @destination.destroy
     flash[:notice] = "Destination deleted successfully!"
     redirect_to country_path(@destination.country)
