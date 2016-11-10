@@ -36,4 +36,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :forecast do
+    latitude 20.653400
+    longitude -105.225300
+    destination
+  end
+
 end
