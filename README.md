@@ -12,7 +12,9 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
  * Clone the git repository
  * cd into the project directory in a terminal window
  * Run the `bundle` command
- * Enter `localhost:3000` to run the app
+ * Start database server (Postgres) - `pg_ctl start`
+ * Start the rails server - `rails s`
+ * Enter `localhost:3000` in your browser address bar to run the app
 
 ## Known Bugs/Issues
 
