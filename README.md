@@ -12,7 +12,6 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
  * Clone the git repository
  * cd into the project directory in a terminal window
  * Run the `bundle` command
-
  * Start database server (Postgres) - `pg_ctl start`
  * Create/prepare the database - in a terminal window in the project directory:
    * `rails db:create`, `rails db:migrate`, `rails db:test:prepare`
