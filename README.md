@@ -12,10 +12,17 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
  * Clone the git repository
  * cd into the project directory in a terminal window
  * Run the `bundle` command
- * Start database server (Postgres) - `pg_ctl start`
  * Create/prepare the database - in a terminal window in the project directory:
    * `rails db:create`, `rails db:migrate`, `rails db:test:prepare`
- * Start the rails server `rails s`
+
+## Setup Darksky API (for forecast info)
+ * Sign up for a Dark Sky API account/key at this link `https://darksky.net/dev/` (allows 1000 free forecasts per day)
+ * Save your API key as follows in a .env file in the project directory:
+   * `DARKSKY_API_KEY=<api-key goes here>`
+
+## Start app
+ * Start database server (Postgres) - enter command `pg_ctl start` in the terminal window (main project directory)
+ * Start the rails server - enter command `rails s` from the main project directory
  * Enter `localhost:3000` in your browser address bar to run the app
 
 ## Known Bugs/Issues

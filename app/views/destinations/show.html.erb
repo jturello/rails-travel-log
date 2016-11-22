@@ -36,7 +36,7 @@
 
 <%= link_to 'Check Weather', new_country_destination_forecast_path(@destination.country, @destination),  id: "check_weather_link" %>
 
-<h3>Latest Forecast:</h3>
+<span class="forecast_label"<h3>Latest Forecast: </h3></span><span class="darksky_attribution">(<%= link_to "Powered by Dark Sky", "https://darksky.net/poweredby/", :target => "_blank"%>)</span>
   <div class="forecast_div">
     <% if @destination.forecasts.any? %>
       <table id="forecast_table" class="table table-bordered">
