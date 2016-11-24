@@ -19,3 +19,6 @@
 #Ignore simpleCov coverage reports
 coverage/
 .env
+
+# Ignore RubyMine IDE config files
+.idea/
