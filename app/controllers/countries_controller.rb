@@ -2,7 +2,7 @@ class CountriesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
   
   def index
-    @countries = Country.all
+    @countries = Country.all    d
   end
 
   def show
