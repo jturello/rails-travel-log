@@ -2,7 +2,7 @@ class CountriesController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
   
   def index
-    @countries = Country.all    d
+    @countries = Country.all
   end
 
   def show
@@ -41,9 +41,9 @@ class CountriesController < ApplicationController
 
   def destroy
     @country = Country.find(params[:id])
-    @country.destinations.each do |destination|
-      destination.destroy
-    end
+    # @country.destinations.each do |destination|
+    #   destination.destroy
+    # end
     @country.destroy
     flash[:notice] = 'Country successfully deleted!'
     redirect_to countries_path

@@ -1,7 +1,7 @@
 $('#new_post').remove();
 $('#d_add_post_link').show();
 <% if !@post.id.nil? %>
-  <% if @destination.posts.count < 2 %>
+  <% if @commentable.posts.count < 2 %>
     $('p.no_posts_msg').remove();
     $('div.destination_post_list').prepend(
         "<table id='destination_post_table' class='table table-bordered'>" +
