@@ -31,8 +31,7 @@
     <%= link_to "Edit", edit_country_path(@country) %> |
     <%= link_to "Add Post", new_country_post_path(@country) %> |
     <%= link_to "Delete", country_path(@country),
-    :data => {:confirm => "Are you sure?",
-      :method => "delete"} %>
+        :data => {:confirm => "Are you sure?", :method => "delete"} %>
   </p>
 <% end %>
 

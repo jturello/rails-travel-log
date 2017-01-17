@@ -9,7 +9,7 @@ describe "adding a new destination post" do
 
     it "does not display the Add Post link" do
       visit country_destination_path(@destination.country, @destination)
-      expect(page).not_to have_link("Add Post", href: new_country_destination_post_path(@destination.country, @destination))
+      expect(page).not_to have_link("Add Post", href: new_destination_post_path(@destination))
     end
   end
 
@@ -21,7 +21,7 @@ describe "adding a new destination post" do
 
     it "displays the Add Post link" do
       visit country_destination_path(@destination.country.id, @destination.id)
-      expect(page).to have_link("Add Post", href: new_country_destination_post_path(@destination.country, @destination))
+      expect(page).to have_link("Add Post", href: new_destination_post_path(@destination))
     end
 
     it "adds a new post with server request / full page load" do

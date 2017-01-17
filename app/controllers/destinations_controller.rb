@@ -1,10 +1,11 @@
 class DestinationsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
-  helper_method :sort_column, :sort_direction
+  # helper_method :sort_column, :sort_direction
 
   def show
     @destination = Destination.find(params[:id])
     @posts = @destination.posts.joins(:user).order(sort_column + " " + sort_direction)
+    # binding.pry
   end
 
   def new
@@ -56,12 +57,12 @@ class DestinationsController < ApplicationController
     params.require(:destination).permit(:name, :blurb, :description, :image_url)
   end
 
-  def sort_column
-    %w[username updated_at content].include?(params[:sort]) ? params[:sort] : 'updated_at'
-  end
-
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
-  end
+  # def sort_column
+  #   %w[username updated_at content].include?(params[:sort]) ? params[:sort] : 'updated_at'
+  # end
+  #
+  # def sort_direction
+  #   %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  # end
 
 end

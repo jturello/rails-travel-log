@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   end
   resources :countries do
     resources :posts, :only => [:new, :create, :destroy]
-    resources :destinations, :except => [:index] do
-      resources :posts, :only => [:new, :create, :destroy]
-      resources :forecasts, :only => [:new, :create]
-    end
+    resources :destinations, :except => [:index]
+  end
+  resources :destinations, :only => [] do
+    resources :posts, :only => [:new, :create, :destroy]
+    resources :forecasts, :only => [:new, :create]
   end
 end

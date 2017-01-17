@@ -7,7 +7,7 @@ describe 'new_country_destination_post_path' do
     it 'it does not display an add a post link' do
       @destination = FactoryGirl.create(:destination)
       visit country_destination_path @destination.country.id, @destination.id
-      expect(page).not_to have_link('Add Post', :href =>(new_country_destination_post_path @destination.country.id, @destination.id))
+      expect(page).not_to have_link('Add Post', :href =>(new_destination_post_path @destination))
     end
 
     context 'before posts are added' do
@@ -39,7 +39,7 @@ describe 'new_country_destination_post_path' do
 
     it 'it does display an add a post link' do
       visit country_destination_path @destination.country.id, @destination.id
-      expect(page).to have_link('Add Post', :href =>(new_country_destination_post_path @destination.country.id, @destination.id))
+      expect(page).to have_link('Add Post', :href =>(new_destination_post_path @destination))
     end
 
     context "when 'Add Post' link is clicked" do

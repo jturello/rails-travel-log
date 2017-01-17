@@ -11,7 +11,7 @@
     </ul>
   <% end %>
 
-<%= form_for [@country, @destination, @forecast] do |f| %>
+<%= form_for [@destination, @forecast] do |f| %>
   <%= f.label :latitude %>
   <%= f.text_field :latitude, :required => true %>
   <%= f.label :longitude %>

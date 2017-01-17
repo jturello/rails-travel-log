@@ -27,14 +27,13 @@
     <% if user_signed_in? %>
     | <%= link_to "Edit", edit_country_destination_path(@destination.country, @destination) %> |
       <%= link_to "Delete", country_destination_path(@destination.country, @destination),
-      :data => {:confirm => "Are you sure?",
-        :method => "delete"} %>
+          :data => {:confirm => "Are you sure?", :method => "delete"} %>
     <% end %>
 </p>
 
 <hr>
 
-<%= link_to 'Check Weather', new_country_destination_forecast_path(@destination.country, @destination),  id: "check_weather_link" %>
+<%= link_to 'Check Weather', new_destination_forecast_path(@destination),  id: "check_weather_link" %>
 
 <span class="forecast_label"<h3>Latest Forecast: </h3></span><span class="darksky_attribution">(<%= link_to "Powered by Dark Sky", "https://darksky.net/poweredby/", :target => "_blank"%>)</span>
   <div class="forecast_div">
@@ -69,7 +68,7 @@
 <hr>
 
 <% if user_signed_in? %>
-  <%= link_to 'Add Post', new_country_destination_post_path(@destination.country, @destination), remote: true, id: "d_add_post_link" %>
+  <%= link_to 'Add Post', new_destination_post_path(@destination), remote: true, id: "d_add_post_link" %>
 <% end %>
 
 

@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     # klass = [Country, Destination].detect { |c| params["#{c.name.underscore}_id"]}
     # binding.pry
     # @commentable = klass.find(params["#{klass.name.underscore}_id"])
-    binding.pry
+    # binding.pry
 
   end
 end

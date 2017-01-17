@@ -13,7 +13,7 @@ class ForecastsController < ApplicationController
       flash[:notice] = "Forecast data was saved successfully!"
       redirect_to country_destination_path @forecast.destination.country, @forecast.destination
     else
-      redirect_to new_country_destination_forecast_path(params[:country_id], params[:destination_id])
+      redirect_to new_destination_forecast_path(params[:destination_id])
     end
   end
 
