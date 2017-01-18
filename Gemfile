@@ -48,6 +48,7 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'dotenv-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
