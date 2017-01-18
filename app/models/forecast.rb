@@ -12,7 +12,7 @@ class Forecast < ActiveRecord::Base
         :method => :get,
         :url => "https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/#{self.latitude},#{self.longitude}?exclude=minutely,hourly,flags"
         ).execute  # 37.8267,-122.4233
-        # binding.pry
+
       rescue RestClient::BadRequest => error
         forecast = JSON.parse(error.response)['forecast']
         errors.add(:base, forecast)

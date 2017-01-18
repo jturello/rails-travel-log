@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # @destination = Destination.find(params[:destination_id])
     @post = @commentable.posts.new(post_params)
     @post.user_id = current_user.id
 
@@ -44,12 +43,6 @@ class PostsController < ApplicationController
     posts_index = path.index('posts')
     resource, id = path[posts_index - 2], path[posts_index - 1]
     @commentable = resource.singularize.classify.constantize.find(id)
-
-
-    # klass = [Country, Destination].detect { |c| params["#{c.name.underscore}_id"]}
-    # binding.pry
-    # @commentable = klass.find(params["#{klass.name.underscore}_id"])
-    # binding.pry
 
   end
 end
