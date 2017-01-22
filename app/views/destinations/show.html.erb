@@ -68,14 +68,14 @@
 <hr>
 
 <% if user_signed_in? %>
-  <%= link_to 'Add Post', new_destination_post_path(@destination), remote: true, id: "d_add_post_link" %>
+  <%= link_to 'Add Post', new_destination_post_path(@destination), remote: true, id: "add_post_link_destination", class: "add_post_link" %>
 <% end %>
 
 
 <h3>Posts:</h3>
-  <div class="destination_post_list">
+  <div class="post_list_destination">
     <% if @destination.posts.any? %>
-      <table id="destination_post_table" class="table table-bordered">
+      <table id="post_table_destination" class="table table-bordered">
         <thead class="thead-inverse">
           <tr>
             <th><%= sortable "username" %></th>
@@ -93,6 +93,6 @@
         <% end %>
       </table>
       <% else %>
-        <p class="no_posts_msg">No posts added yet!</p>
+        <p class="no_posts_msg_destination">No posts added yet!</p>
       <% end %>
     </div>

@@ -9,7 +9,7 @@ describe 'country_path' do
 
   context 'when user is logged in' do
 
-    it "does displays the 'Add Post' link" do
+    it "does display the 'Add Post' link" do
       @country = FactoryGirl.create :country
       visit country_path(@country)
       expect(page).to have_link('Add Post', :href=>new_country_post_path(@country))

@@ -29,11 +29,43 @@
 <% if user_signed_in? %>
   <p>
     <%= link_to "Edit", edit_country_path(@country) %> |
-    <%= link_to "Add Post", new_country_post_path(@country) %> |
     <%= link_to "Delete", country_path(@country),
         :data => {:confirm => "Are you sure?", :method => "delete"} %>
   </p>
 <% end %>
+
+<hr>
+
+<% if user_signed_in? %>
+    <%= link_to 'Add Post', new_country_post_path(@country), remote: true, id: "add_post_link_country", class: "add_post_link" %>
+<% end %>
+
+
+<h3>Posts:</h3>
+<div class="post_list_country">
+  <% if @country.posts.any? %>
+      <table id="post_table_country" class="table table-bordered">
+        <thead class="thead-inverse">
+        <tr>
+          <th><%= sortable "username" %></th>
+          <th><%= sortable "updated_at", "Last Updated" %></th>
+          <th><%= sortable "content" %></th>
+        </tr>
+        </thead>
+
+        <% @posts.each do |post| %>
+            <tr>
+              <td> <%= User.find(post.user_id).username %> </td>
+              <td> <%= post.updated_at.strftime("%F %H:%M:%S") %> </td>
+              <td> <%= post.content %> </td>
+            </tr>
+        <% end %>
+      </table>
+  <% else %>
+      <p class="no_posts_msg_country">No posts added yet!</p>
+  <% end %>
+</div>
+
 
 <hr>
 

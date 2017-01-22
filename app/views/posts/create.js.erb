@@ -1,21 +1,21 @@
-$('#new_post').remove();
-$('#d_add_post_link').show();
-<% if !@post.id.nil? %>
-  <% if @commentable.posts.count < 2 %>
-    $('p.no_posts_msg').remove();
-    $('div.destination_post_list').prepend(
-        "<table id='destination_post_table' class='table table-bordered'>" +
-          "<thead class='thead-inverse'>" +
-            "<tr>" +
-              '<th><%= sortable "username" %></th>' +
-              '<th><%= sortable "updated_at", "Last Updated" %></th>' +
-              '<th><%= sortable "content" %></th>' +
-            "</tr>" +
-          "</thead>")
+  $('#new_post').remove();
+  $("#add_post_link_<%= @commentable.class.name.downcase %>").show();
+  <% if !@post.id.nil? %>
+    <% if @commentable.posts.count < 2 %>
+      $("p.no_posts_msg_<%= @commentable.class.name.downcase %>").remove();
+      $("div.post_list_<%= @commentable.class.name.downcase %>").prepend(
+          "<table id='post_table_<%= @commentable.class.name.downcase %>' class='table table-bordered'>" +
+            "<thead class='thead-inverse'>" +
+              "<tr>" +
+                '<th><%= sortable "username" %></th>' +
+                '<th><%= sortable "updated_at", "Last Updated" %></th>' +
+                '<th><%= sortable "content" %></th>' +
+              "</tr>" +
+            "</thead>")
+    <% end %>
+    $("#post_table_<%= @commentable.class.name.downcase %>").prepend('<tr> ' +
+                                            '<td> <%= User.find(@post.user_id).username %> </td>' +
+                                            '<td> <%= @post.updated_at.strftime("%F %H:%M:%S") %> </td>' +
+                                            '<td> <%= @post.content %> </td>' +
+                                          '</tr>');
   <% end %>
-  $('#destination_post_table').prepend('<tr> ' +
-                                          '<td> <%= User.find(@post.user_id).username %> </td>' +
-                                          '<td> <%= @post.updated_at.strftime("%F") %> </td>' +
-                                          '<td> <%= @post.content %> </td>' +
-                                        '</tr>');
-<% end %>

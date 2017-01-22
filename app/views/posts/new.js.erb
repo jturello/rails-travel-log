@@ -1,1 +1,1 @@
-$('#d_add_post_link').hide().after('<%= j render("form") %>');
+$("#add_post_link_<%= @commentable.class.name.downcase %>").hide().after('<%= j render("form") %>');

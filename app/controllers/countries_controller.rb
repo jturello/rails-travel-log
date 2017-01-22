@@ -7,6 +7,7 @@ class CountriesController < ApplicationController
 
   def show
     @country = Country.find(params[:id])
+    @posts = @country.posts.joins(:user).order(sort_column + " " + sort_direction)
   end
 
   def new

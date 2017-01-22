@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_filter :load_commentable
+  before_action :load_commentable
 
   def new
     @commentable
@@ -14,7 +14,13 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:notice] = "Post successfully added!"
-          redirect_to country_destination_path @commentable.country, @commentable
+          # binding.pry
+          if @commentable.class == Country
+            redirect_to country_path @commentable
+          elsif @commentable.class == Destination
+            redirect_to country_destination_path @commentable.country, @commentable
+          end
+
         else
           flash[:alert] = "Post not added. Try again!"
           render :new
@@ -29,7 +35,6 @@ class PostsController < ApplicationController
   def update
 
   end
-
 
 
   private
