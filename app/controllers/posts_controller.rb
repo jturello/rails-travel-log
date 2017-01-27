@@ -14,7 +14,7 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:notice] = "Post successfully added!"
-          # binding.pry
+          # #binding.pry
           if @commentable.class == Country
             redirect_to country_path @commentable
           elsif @commentable.class == Destination

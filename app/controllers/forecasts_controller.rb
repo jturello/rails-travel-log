@@ -3,18 +3,22 @@ class ForecastsController < ApplicationController
   def new
     @forecast = Forecast.new
     @destination = Destination.find(params[:destination_id])
-    @country = Country.find(params[:country_id])
+    @country = Country.find(@destination.country.id)
   end
 
   def create
     @destination = Destination.find(params[:destination_id])
     @forecast = @destination.forecasts.new(forecast_params)
     if @forecast.save
-      flash[:notice] = "Forecast data was saved successfully!"
+      flash[:notice] = "Forecast data was fetched and saved successfully!"
       redirect_to country_destination_path @forecast.destination.country, @forecast.destination
     else
+      err = @forecast.errors.first
+      flash[:alert] = "Forecast fetch failed with error #{err['code']}: #{err['error']}. Try again!"
       redirect_to new_destination_forecast_path(params[:destination_id])
     end
+
+
   end
 
 

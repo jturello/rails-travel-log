@@ -4,18 +4,22 @@ class Forecast < ActiveRecord::Base
   before_create :get_forecast
 
   validates :destination_id, :latitude, :longitude, presence: true
+  validates :latitude, inclusion: { in: -90..90 }
+  validates :longitude, inclusion: { in: -180..180 }
 
   private
   def get_forecast
     begin
+      #binding.pry
       response = RestClient::Request.new(
         :method => :get,
         :url => "https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/#{self.latitude},#{self.longitude}?exclude=minutely,hourly,flags"
         ).execute  # 37.8267,-122.4233
 
       rescue RestClient::BadRequest => error
-        forecast = JSON.parse(error.response)['forecast']
-        errors.add(:base, forecast)
+        err = JSON.parse(error.response) # ['forecast']
+        # errors.add(:base, err)
+        binding.pry
         throw(:abort)
     end
 
@@ -30,6 +34,8 @@ class Forecast < ActiveRecord::Base
     self.windspeed = parsed_response['currently']['windSpeed']
     self.precip_probability = parsed_response['currently']['precipProbability']
     self.summary_for_week = parsed_response['daily']['summary']
+
+    # binding.pry
 
   end
 end
