@@ -13,12 +13,14 @@ class ForecastsController < ApplicationController
       flash[:notice] = "Forecast data was fetched and saved successfully!"
       redirect_to country_destination_path @forecast.destination.country, @forecast.destination
     else
-      err = @forecast.errors.first
-      flash[:alert] = "Forecast fetch failed with error #{err['code']}: #{err['error']}. Try again!"
+      if @forecast.errors.count == 1
+        err = @forecast.errors.first
+        flash[:alert] = "Forecast fetch failed with error #{err.join(" ")}. Try again!"
+      else
+        flash[:alert] = "Forecast fetch failed. Try again!"
+      end
       redirect_to new_destination_forecast_path(params[:destination_id])
     end
-
-
   end
 
 

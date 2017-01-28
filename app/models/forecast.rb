@@ -4,8 +4,8 @@ class Forecast < ActiveRecord::Base
   before_create :get_forecast
 
   validates :destination_id, :latitude, :longitude, presence: true
-  validates :latitude, inclusion: { in: -90..90 }
-  validates :longitude, inclusion: { in: -180..180 }
+  validates :latitude, inclusion: { in: -90..90 , message: "%{value} is out of range -90..90" }
+  validates :longitude, inclusion: { in: -180..180 , message: "%{value} is out of range -180..180" }
 
   private
   def get_forecast
