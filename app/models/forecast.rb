@@ -4,13 +4,12 @@ class Forecast < ActiveRecord::Base
   before_create :get_forecast
 
   validates :destination_id, :latitude, :longitude, presence: true
-  validates :latitude, inclusion: { in: -90..90 , message: "%{value} is out of range -90..90" }
-  validates :longitude, inclusion: { in: -180..180 , message: "%{value} is out of range -180..180" }
+  validates :latitude, inclusion: { in: -90..90, message: "not in valid range: -90:90" }
+  validates :longitude, inclusion: { in: -180..180, message: "not in valid range: -180:180" }
 
   private
   def get_forecast
     begin
-      #binding.pry
       response = RestClient::Request.new(
         :method => :get,
         :url => "https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/#{self.latitude},#{self.longitude}?exclude=minutely,hourly,flags"
@@ -18,8 +17,6 @@ class Forecast < ActiveRecord::Base
 
       rescue RestClient::BadRequest => error
         err = JSON.parse(error.response) # ['forecast']
-        # errors.add(:base, err)
-        binding.pry
         throw(:abort)
     end
 
