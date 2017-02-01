@@ -2,7 +2,7 @@ require('rails_helper')
 
 describe "new_country_path" do
   before :each do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     login_as(user, :scope => :user)
   end
 

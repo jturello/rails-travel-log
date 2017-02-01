@@ -5,7 +5,7 @@ describe 'new_country_destination_post_path' do
   context 'when user is not logged in' do
 
     it 'it does not display an add a post link' do
-      @destination = FactoryGirl.create(:destination)
+      @destination = create(:destination)
       visit country_destination_path @destination.country.id, @destination.id
       expect(page).not_to have_link('Add Post', :href =>(new_destination_post_path @destination))
     end
@@ -13,7 +13,7 @@ describe 'new_country_destination_post_path' do
     context 'before posts are added' do
 
       it "displays text 'No posts added yet!'" do
-        @destination = FactoryGirl.create(:destination)
+        @destination = create(:destination)
         visit country_destination_path @destination.country.id, @destination.id
         expect(page).to have_content('No posts added yet!')
       end
@@ -22,7 +22,7 @@ describe 'new_country_destination_post_path' do
     context 'after posts are added' do
 
       it 'displays posts' do
-        @post = FactoryGirl.create(:destination_post)
+        @post = create(:destination_post)
         visit country_destination_path @post.commentable.country.id, @post.commentable.id
         expect(page).to have_content('This is a destination post!')
       end
@@ -32,9 +32,9 @@ describe 'new_country_destination_post_path' do
   context 'when user is logged in' do
 
     before :each do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       login_as(user, :scope => :user)
-      @destination = FactoryGirl.create(:destination)
+      @destination = create(:destination)
     end
 
     it 'it does display an add a post link' do

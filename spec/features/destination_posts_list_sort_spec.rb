@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe "destination post list sorting with ajax" do
   before :each do
-    @user_2 = FactoryGirl.create(:user, :username => 'User Two', :email => 'different@email.com')
-    @destination = FactoryGirl.create(:destination)
-    @post_1 = FactoryGirl.create(:destination_post, :content => 'first post', :commentable => @destination)
-    @post_2 = FactoryGirl.create(:destination_post, :content => 'second post', :user => @user_2, :commentable => @destination)
+    @user_2 = create(:user, :username => 'User Two', :email => 'different@email.com')
+    @destination = create(:destination)
+    @post_1 = create(:destination_post, :content => 'first post', :commentable => @destination)
+    @post_2 = create(:destination_post, :content => 'second post', :user => @user_2, :commentable => @destination)
   end
   context "when user is not logged in" do
     context "on initial Destination Detail page load" do
@@ -39,7 +39,7 @@ describe "destination post list sorting with ajax" do
   context "when user is logged in" do
 
     before :each do
-      user = FactoryGirl.create(:user, :username => "User Three", :email => 'another@email.com')
+      user = create(:user, :username => "User Three", :email => 'another@email.com')
       login_as(user, :scope => :user)
     end
 

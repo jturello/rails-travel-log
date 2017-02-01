@@ -3,14 +3,14 @@ require('rails_helper')
 describe "edit_country_path" do
 
   before :each do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     login_as(user, :scope => :user)
   end
 
   context 'when Name is updated' do
 
     it "updates Name" do
-      @country = FactoryGirl.create(:country)
+      @country = create(:country)
       visit root_path
       click_on 'Mordor : Sights to see - the Eye of Sauron!'
       click_on 'Edit'
@@ -22,7 +22,7 @@ describe "edit_country_path" do
     end
 
     it "does not change Blurb when only Name is updated" do
-      @country = FactoryGirl.create :country
+      @country = create :country
       visit root_path
       click_on 'Mordor : Sights to see - the Eye of Sauron!'
       click_on 'Edit'
@@ -34,7 +34,7 @@ describe "edit_country_path" do
 
   context 'when Cancel Update is clicked' do
     it "does not update country" do
-      @country = FactoryGirl.create(:country)
+      @country = create(:country)
       visit root_path
       click_on 'Mordor : Sights to see - the Eye of Sauron!'
       click_on 'Edit'
@@ -46,7 +46,7 @@ describe "edit_country_path" do
 
     context 'when update succeeds' do
     it "displays a flash notice" do
-      @country = FactoryGirl.create(:country)
+      @country = create(:country)
       visit root_path
       click_on 'Mordor : Sights to see - the Eye of Sauron!'
       click_on 'Edit'

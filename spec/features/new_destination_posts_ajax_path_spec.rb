@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "adding a new destination post" do
   before :each do
-    @destination = FactoryGirl.create :destination
+    @destination = create :destination
   end
 
   context "when user is not logged in" do
@@ -15,7 +15,7 @@ describe "adding a new destination post" do
 
   context "when user is logged in" do
     before :each do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       login_as(user, :scope => :user)
     end
 
@@ -34,8 +34,8 @@ describe "adding a new destination post" do
 
     describe "when requests are sent via Ajax", js: true do
       before :each do
-        @destination = FactoryGirl.create :destination
-        user = FactoryGirl.create(:user, :email => 'some@otheremail.com')
+        @destination = create :destination
+        user = create(:user, :email => 'some@otheremail.com')
         login_as(user, :scope => :user)
       end
 

@@ -3,13 +3,13 @@ require 'rails_helper'
 describe 'edit_country_destination_path' do
 
   before :each do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     login_as(user, :scope => :user)
   end
 
   context 'when Update is clicked' do
     it "updates destination" do
-      @destination = FactoryGirl.create :destination
+      @destination = create :destination
       visit country_destination_path @destination.country, @destination
       click_on 'Edit'
       fill_in 'Name', :with => 'Moria'
@@ -18,7 +18,7 @@ describe 'edit_country_destination_path' do
     end
 
     it "re-displays Destination Detail Page" do
-      @destination = FactoryGirl.create :destination
+      @destination = create :destination
       visit country_destination_path @destination.country, @destination
       click_on 'Edit'
       fill_in 'Name', :with => 'Moria'
@@ -27,7 +27,7 @@ describe 'edit_country_destination_path' do
     end
 
     it 'displays flash notice - Destination updated successfully!' do
-      @destination = FactoryGirl.create :destination
+      @destination = create :destination
       visit country_destination_path @destination.country, @destination
       click_on 'Edit'
       fill_in 'Name', :with => 'Moria'
@@ -38,7 +38,7 @@ describe 'edit_country_destination_path' do
 
   context 'when Cancel Update is clicked' do
     it "does not update destination" do
-      @destination = FactoryGirl.create :destination
+      @destination = create :destination
       visit country_destination_path @destination.country, @destination
       click_on 'Edit'
       fill_in 'Name', :with => 'Moria'
@@ -47,7 +47,7 @@ describe 'edit_country_destination_path' do
     end
 
     it "re-displays Destination Detail Page" do
-      @destination = FactoryGirl.create :destination
+      @destination = create :destination
       visit country_destination_path @destination.country, @destination
       click_on 'Edit'
       fill_in 'Name', :with => 'Moria'

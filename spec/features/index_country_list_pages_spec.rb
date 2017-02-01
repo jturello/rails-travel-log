@@ -4,7 +4,7 @@ require 'rails_helper'
 describe "Root path" do
 
   before :each do
-    user = FactoryGirl.create(:user)
+    user = create(:user)
     login_as(user, :scope => :user)
   end
 
@@ -16,7 +16,7 @@ describe "Root path" do
 
     context "after last country is deleted" do
       it "displays text 'No countries added yet'" do
-        @country = FactoryGirl.create(:country)
+        @country = create(:country)
         visit country_path @country
         click_on 'Delete'
         expect(page).to have_content "No countries added yet!"
