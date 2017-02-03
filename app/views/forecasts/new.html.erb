@@ -3,8 +3,8 @@
 
 <%= form_for [@destination, @forecast] do |f| %>
   <%= f.label :latitude %>
-  <%= f.number_field :latitude, :required => true, :in => -90..90 %>
+  <%= f.number_field :latitude, step: :any, required: true, :in => -90..90 %>
   <%= f.label :longitude %>
-  <%= f.number_field :longitude, :required => true, :in => -180..180 %>
-  <%= f.submit %>
+  <%= f.number_field :longitude, step: :any, required: true, :in => -180..180 %>
+  <%= f.submit 'Submit' %>
 <% end %>
