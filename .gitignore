@@ -22,3 +22,6 @@ coverage/
 
 # Ignore RubyMine IDE config files
 .idea/
+
+# Ignore VCR cassettes
+spec/cassettes/*
