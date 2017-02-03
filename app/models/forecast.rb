@@ -32,7 +32,5 @@ class Forecast < ActiveRecord::Base
     self.precip_probability = parsed_response['currently']['precipProbability']
     self.summary_for_week = parsed_response['daily']['summary']
 
-    # binding.pry
-
   end
 end
