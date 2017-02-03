@@ -57,15 +57,19 @@ describe :forecast do
 
       context 'when user logs out' do
 
-        it 'displays previously generated forecasts' do
+        before :each do
           click_link 'Logout'
           visit country_destination_path @destination.country.id, @destination.id
+        end
+
+        it 'displays previously generated forecasts' do
           expect(page).to have_xpath('.//tr/th', text: '7 Day Forecast')
         end
 
         it "still displays Time Zone 'America/Los Angeles' for request latitude: 37.8267 / longitude: -122.4233" do
           expect(page).to have_content('Time Zone').and have_content('America/Los_Angeles')
         end
+
       end
     end
   end
