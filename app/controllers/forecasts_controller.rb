@@ -10,7 +10,7 @@ class ForecastsController < ApplicationController
     @destination = Destination.find(params[:destination_id])
     @forecast = @destination.forecasts.new(forecast_params)
     if @forecast.save
-      flash[:notice] = "Forecast data was fetched and saved successfully!"
+      flash[:notice] = "Forecast data fetched successfully!"
       redirect_to country_destination_path @forecast.destination.country, @forecast.destination
     else
       if @forecast.errors.count == 1
