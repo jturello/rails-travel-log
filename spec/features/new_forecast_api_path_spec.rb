@@ -58,7 +58,6 @@ describe :forecast do
       context 'when user logs out' do
 
         it 'displays previously generated forecasts' do
-          destination_id = @destination.id
           click_link 'Logout'
           visit country_destination_path @destination.country.id, @destination.id
           expect(page).to have_xpath('.//tr/th', text: '7 Day Forecast')
@@ -68,7 +67,6 @@ describe :forecast do
           expect(page).to have_content('Time Zone').and have_content('America/Los_Angeles')
         end
       end
-
     end
   end
 end
