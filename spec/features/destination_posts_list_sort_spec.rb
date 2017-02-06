@@ -39,8 +39,8 @@ describe "destination post list sorting with ajax" do
   context "when user is logged in" do
 
     before :each do
-      user = create(:user, :username => "User Three", :email => 'another@email.com')
-      login_as(user, :scope => :user)
+      @user = create(:user, :username => "User Three", :email => 'another@email.com')
+      login_as(@user, :scope => :user)
     end
 
     context "on adding a new post via Ajax" do

@@ -50,7 +50,7 @@ describe "adding a new destination post" do
         it "adds a new post" do
           visit country_destination_path(@destination.country.id, @destination.id)
           click_on 'Add Post'
-          expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country
+          expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country))
                       .and have_content "Content"
         end
 
