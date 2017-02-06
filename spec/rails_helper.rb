@@ -91,5 +91,6 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
   c.ignore_localhost = true
   c.filter_sensitive_data('<api_key>') { ENV['DARKSKY_API_KEY'] }
+  c.default_cassette_options = { :record => :new_episodes }
 end
 

@@ -37,7 +37,7 @@ describe :forecast do
     context 'when request is submitted with valid input' do
 
       before :each do
-          VCR.use_cassette 'forecasts' do
+        VCR.use_cassette 'forecasts' do
           click_on 'Check Weather'
           fill_in 'forecast_latitude', :with => '37.8267'
           fill_in 'forecast_longitude', :with => '-122.4233'
