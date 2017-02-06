@@ -44,15 +44,14 @@ describe "adding a new destination post" do
         it "displays Add Post form inline on destination detail page" do
           visit country_destination_path(@destination.country.id, @destination.id)
           click_on 'Add Post'
-          expect(page).to have_content('Content')
-          expect(page).to have_css('h1', :text => @destination.name + "'s Destination Detail Page")
+          expect(page).to have_content('Content').and have_css('h1', :text => @destination.name + "'s Destination Detail Page")
         end
 
         it "adds a new post" do
           visit country_destination_path(@destination.country.id, @destination.id)
           click_on 'Add Post'
-          expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country))
-          expect(page).to have_content "Content"
+          expect(page).to have_link(@destination.country.name + " Page", :href => country_path(@destination.country
+                      .and have_content "Content"
         end
 
         context "when Create Post is clicked" do
