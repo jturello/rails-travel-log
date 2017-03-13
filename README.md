@@ -1,29 +1,31 @@
-Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, APIs
-
+Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, APIs 
 #### This app is a travel log where users can come to see general information about travel destinations other registered users have added. Non-registered users can sign up to be able to add/edit/delete entries of their own. Logged in users can add/edit/delete items they have created.
 
 #### By James Turello
 
 ### Software required to run this app
+ * Ruby 2.3.1p112
  * Rails 5.0.0.1
  * Postgres 9.5.0
 
 ## Setup/Installation Instructions/Requirements
- * Clone the git repository
- * cd into the project directory in a terminal window
- * Run the `bundle` command
- * Create/prepare the database - in a terminal window in the project directory:
-   * `rails db:create`, `rails db:migrate`, `rails db:test:prepare`
+ * From a terminal window:
+   * git clone https://github.com/jturello/rails-travel-log
+   * cd rails-travel-log
+   * `bundle`
+   * Database setup: 
+     * Run command (in a 2nd terminal window/project root): `pg_ctl start`
+     * Run command: `rails db:create db:migrate db:test:prepare`
 
 ## Setup Darksky API (for forecast info)
- * Sign up for a Dark Sky API account/key at this link `https://darksky.net/dev/` (allows 1000 free forecasts per day)
- * Save your API key as follows in a .env file in the project directory:
-   * `DARKSKY_API_KEY=<api-key goes here>`
+ * Sign up for a Dark Sky API account/key here: [Darksky Api Keys](https://darksky.net/dev/)
+ * Save API key in file .env in the project directory:
+   * `DARKSKY_API_KEY=api-key-goes-here`
 
 ## Start app
- * Start database server (Postgres) - enter command `pg_ctl start` in the terminal window (main project directory)
- * Start the rails server - enter command `rails s` from the main project directory
- * Enter `localhost:3000` in your browser address bar to run the app
+
+ * From the project root directory run command: `rails s`
+ * Visit app at  `localhost:3000`
 
 ## Known Bugs/Issues
 
