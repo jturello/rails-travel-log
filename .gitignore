@@ -19,10 +19,12 @@ brakeman*
 
 #Ignore simpleCov coverage reports
 coverage/
-.env
 
-# Ignore RubyMine IDE config files
-.idea/
+# ignore files
+.env
 
 # Ignore VCR cassettes
 spec/cassettes/*
+
+# Ignore RubyMine IDE config files
+.idea/
