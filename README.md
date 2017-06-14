@@ -1,4 +1,4 @@
-Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, APIs 
+Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, APIs
 #### This app is a travel log where users can come to see general information about travel destinations other registered users have added. Non-registered users can sign up to be able to add/edit/delete entries of their own. Logged in users can add/edit/delete items they have created.
 
 #### By James Turello
@@ -6,14 +6,14 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
 ### Software required to run this app
  * Ruby 2.3.1p112
  * Rails 5.0.0.1
- * Postgres 9.5.0
+ * Postgres 9.6.3
 
 ## Setup/Installation Instructions/Requirements
  * From a terminal window:
    * git clone https://github.com/jturello/rails-travel-log
    * cd rails-travel-log
    * `bundle`
-   * Database setup: 
+   * Database setup:
      * Run command (in a 2nd terminal window/project root): `pg_ctl start`
      * Run command: `rails db:create db:migrate db:test:prepare`
 
