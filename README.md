@@ -1,4 +1,5 @@
 Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, APIs
+
 #### This app is a travel log where users can come to see general information about travel destinations other registered users have added. Non-registered users can sign up to be able to add/edit/delete entries of their own. Logged in users can add/edit/delete items they have created.
 
 #### By James Turello
