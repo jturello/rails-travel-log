@@ -16,7 +16,7 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
    * `bundle`
    * Database setup:
      * Run command (in a 2nd terminal window/project root): `pg_ctl start`
-     * Run command: `rails db:create db:migrate db:test:prepare`
+     * Run command (back in the original terminal window): `rails db:create db:migrate db:test:prepare`
 
 ## Setup Darksky API (for forecast info)
  * Sign up for a Dark Sky API account/key here: [Darksky Api Keys](https://darksky.net/dev/)
@@ -34,7 +34,7 @@ No known issues.
 
 ## Technologies Used
 
-Rails 5.0.0.1, Postgres 9.5.0, tested on Chrome 52.0.2743.116 (64-bit)(Mac)
+Ruby 2.3.1p112, Rails 5.0.0.1, Postgres 9.6.3, tested on Chrome 52.0.2743.116 (64-bit)(Mac)
 
 ### License
 
