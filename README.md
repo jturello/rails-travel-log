@@ -9,9 +9,6 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
  * Rails 5.0.0.1
  * Postgres 9.6.3
 
-### Software required to run RSpec tests
- * phantomjs (brew install phantomjs - on Mac)
-
 ## Setup/Installation Instructions/Requirements
  * From a terminal window:
    * git clone https://github.com/jturello/rails-travel-log
@@ -30,6 +27,15 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
 
  * From the project root directory run command: `rails s`
  * Visit app at  `localhost:3000`
+
+## Running RSpec tests
+ * Ajax tests in the test suite require the poltergeist gem which requires phantomjs to be installed on the host system [installation instructions](https://github.com/teampoltergeist/poltergeist#installing-phantomjs)
+ * To run tests: 
+   * in a terminal window cd into the project directory: `cd rails-travel-log`
+   * run command: `rspec`
+ * To run tests with text output:
+   * from the project directory run command: `rspec --format d`
+
 
 ## Known Bugs/Issues
 
