@@ -9,6 +9,9 @@ Epicodus Final Individual Project: Rails Code Review - authentication, Ajax, API
  * Rails 5.0.0.1
  * Postgres 9.6.3
 
+### Software required to run RSpec tests
+ * phantomjs (brew install phantomjs - on Mac)
+
 ## Setup/Installation Instructions/Requirements
  * From a terminal window:
    * git clone https://github.com/jturello/rails-travel-log
