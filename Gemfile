@@ -47,7 +47,7 @@ group :development, :test do
   gem 'pry'
   gem 'shoulda-matchers'
   gem 'poltergeist'
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_bot_rails', "~> 4.0"
   gem 'simplecov', require: false
   gem 'database_cleaner'
   gem 'rails-controller-testing'
